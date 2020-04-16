@@ -47,7 +47,7 @@ def int_to_note(pitchnames):
     return res
 
 
-def notes_to_midi(output, filename, offset=0):
+def notes_to_midi(output, filename='output', offset=0):
     output_notes = []
     for pattern in output:
         if ('.' in pattern) or pattern.isdigit():
