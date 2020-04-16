@@ -45,8 +45,8 @@ def create_model(network_input
     # set callbacks
     filepath = "training_weight/weights-save-{epoch:04d}-{loss:.4f}-bigger.hdf5"
     checkpoint = ModelCheckpoint(
-        filepath, monitor='val_loss',
-        verbose=0,
+        filepath, monitor='loss',
+        verbose=1,
         save_best_only=True,
         mode='max'
     )
