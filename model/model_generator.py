@@ -1,3 +1,4 @@
+import pickle
 import time
 
 import numpy as np
@@ -64,6 +65,11 @@ def train(model, network_input, network_output, callbacks_list=[], epochs=200, b
               , batch_size=batch_size
               , callbacks=callbacks_list
               )
+    weigh = model.get_weights();
+    pklfile = "modelweights.pkl"
+    fpkl = open(pklfile, 'wb')  # Python 3
+    pickle.dump(weigh, fpkl, protocol=pickle.HIGHEST_PROTOCOL)
+    fpkl.close()
 
 
 def generate_music(model, network_input, vocab_size, pitchnames, nb_notes=500, start_notes=None,
