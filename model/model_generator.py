@@ -49,7 +49,7 @@ def create_model(network_input
         filepath, monitor='loss',
         verbose=1,
         save_best_only=True,
-        mode='max'
+        mode='min'
     )
     NAME = "prequel_generator_version_1-{}".format(int(time.time()))
     tensorboard = TensorBoard(log_dir='logs/{}'.format(NAME))
