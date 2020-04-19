@@ -11,5 +11,6 @@ if __name__ == "__main__":
     model, callbacks = create_model(network_input, vocab_size, units=int(args[1]), middle_units=args[2])
     weights = pickle.load(open("modelweights.pkl", "rb"))
     model.set_weights(weights)
+    train(model, network_input, network_output, callbacks, epochs=100)
     output = generate_music(model, network_input, vocab_size, pitchnames)
     notes_to_midi(output, args[3])
