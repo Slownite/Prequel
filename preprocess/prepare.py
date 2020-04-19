@@ -67,4 +67,4 @@ def notes_to_midi(output, filename='output', offset=0):
             output_notes.append(new_note)
         offset += 0.5
     midi_stream = stream.Stream(output_notes)
-    midi_stream.write('midi', fp=filename+'.mid')
+    midi_stream.write('midi', fp="output/"+filename+'.mid')
