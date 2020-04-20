@@ -58,7 +58,7 @@ def create_model(network_input
     return model, callbacks_list
 
 
-def train(model, network_input, network_output, callbacks_list=[], epochs=200, batch_size=64):
+def train(model, network_input, network_output, callbacks_list=[], epochs=200, batch_size=128):
     model.fit(network_input
               , network_output
               , epochs=epochs

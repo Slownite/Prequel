@@ -9,5 +9,5 @@ if __name__ == "__main__":
     args = sys.argv
     notes = load_data("midi_songs")
     network_input, network_output, vocab_size, pitchnames = to_integer_base(notes, 100)
-    model, callbacks = create_model(network_input, vocab_size, units=int(args[2]), middle_units=args[3])
+    model, callbacks = create_model(network_input, vocab_size, units=int(args[2]), middle_units=int(args[3]))
     train(model, network_input, network_output, callbacks_list=callbacks, epochs=int(args[1]))
