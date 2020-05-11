@@ -5,8 +5,6 @@ from train import load_data
 
 
 def generate_notes(model, network_input, pitchnames, n_vocab):
-    """ Generate notes from the neural network based on a sequence of notes """
-    # pick a random sequence from the input as a starting point for the prediction
     start = np.random.randint(0, len(network_input) - 1)
 
     int_to_note = dict((number, note) for number, note in enumerate(pitchnames))
@@ -14,7 +12,6 @@ def generate_notes(model, network_input, pitchnames, n_vocab):
     pattern = network_input[start]
     prediction_output = []
 
-    # generate 500 notes
     for note_index in range(500):
         prediction_input = np.reshape(pattern, (1, len(pattern), 1))
         prediction_input = prediction_input / float(n_vocab)
@@ -32,8 +29,7 @@ def generate_notes(model, network_input, pitchnames, n_vocab):
 
 
 def prepare_sequences(notes, pitchnames, n_vocab):
-    """ Prepare the sequences used by the Neural Network """
-    # map between notes and integers and back
+
     note_to_int = dict((note, number) for number, note in enumerate(pitchnames))
 
     sequence_length = 100
@@ -47,9 +43,7 @@ def prepare_sequences(notes, pitchnames, n_vocab):
 
     n_patterns = len(network_input)
 
-    # reshape the input into a format compatible with LSTM layers
     normalized_input = np.reshape(network_input, (n_patterns, sequence_length, 1))
-    # normalize input
     normalized_input = normalized_input / float(n_vocab)
 
     return network_input, normalized_input
@@ -86,7 +80,6 @@ def notes_to_midi(output, filename='output', offset=0):
 def generate(model, network_input, pitchnames, n_vocab):
     prediction_output = generate_notes(model, network_input, pitchnames, n_vocab)
     return prediction_output
-    #notes_to_midi(prediction_output)
 
 
 if __name__ == "__main__":

@@ -7,7 +7,6 @@ from tensorflow_core.python.keras.callbacks import ModelCheckpoint
 from tensorflow_core.python.keras.layers import LSTM, Dropout, Dense, Activation, BatchNormalization
 
 
-# In[3]:
 
 
 def load_data(directory='midi_songs'):
